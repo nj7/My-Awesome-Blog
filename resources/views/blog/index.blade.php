@@ -1,5 +1,5 @@
 @extends('layout.main')
-
+@section('title', 'My Awesome Blog')
 @section('content')
 
     <div class="container">

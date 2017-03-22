@@ -1,5 +1,5 @@
 @extends('layout.main')
-
+@section('title',$post->title)
 @section('content')
 
     <div class="container">
