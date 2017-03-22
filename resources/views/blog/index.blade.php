@@ -1,4 +1,5 @@
-@extends('layout.main')
+@extends('layout.header')
+@extends('layout.footer')
 @section('title', 'My Awesome Blog')
 @section('content')
 

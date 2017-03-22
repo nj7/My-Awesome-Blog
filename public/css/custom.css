@@ -333,3 +333,11 @@ ul.social-icons li {
 span.required {
     color: red;
 }
+
+.auth-form{
+    width: 350px;
+    height: 90%;
+    padding: 50px;
+    margin: auto auto auto auto;
+    text-align: left;
+ }

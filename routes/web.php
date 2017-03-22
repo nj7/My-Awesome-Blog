@@ -26,3 +26,8 @@ Route::get('/category/{category}', [
 		'uses' => 'BlogController@category',
 		'as' => 'category'
 	]);
+
+Route::get('/login', [
+		'uses' => 'LoginController@index',
+		'as' => 'login'
+	]);
