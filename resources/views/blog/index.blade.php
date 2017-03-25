@@ -1,5 +1,4 @@
 @extends('layout.header')
-@extends('layout.footer')
 @section('title', 'My Awesome Blog')
 @section('content')
 
@@ -66,5 +65,5 @@
             @include('layout.sidebar')
         </div>
     </div>
-
+    @include('layout.footer')
 @endsection

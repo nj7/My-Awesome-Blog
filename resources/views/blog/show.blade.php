@@ -1,5 +1,4 @@
 @extends('layout.header')
-@extends('layout.footer')
 @section('title',$post->title)
 @section('content')
 
@@ -46,5 +45,5 @@
             @include('layout.sidebar')
         </div>
     </div>
-
+    @include('layout.footer')
 @endsection

@@ -29,7 +29,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{ route('blog') }}">Blog</a></li>
                 <li><a href="{{ route('login')}}">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="{{route('register')}}">Register</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
@@ -37,3 +37,4 @@
           </div><!-- /.container -->
         </nav>
     </header>
+    @yield('content')

@@ -31,3 +31,17 @@ Route::get('/login', [
 		'uses' => 'LoginController@index',
 		'as' => 'login'
 	]);
+
+Route::post('/login/signingIn', [
+		'uses' => 'LoginController@signIn',
+		'as' => 'signin'
+	]);
+
+Route::get('/register', [
+		'uses' => 'RegisterController@index',
+		'as' => 'register'
+	]);
+Route::post('/register', [
+		'uses' => 'RegisterController@create',
+		'as' => 'create_user'
+	]);
