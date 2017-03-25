@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MyBlog @yield('title')</title>
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/custom.css">
+
+
 </head>
 <body>
     <header>
@@ -27,7 +30,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="the-navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ route('blog') }}">Blog</a></li>
+                <li><a href="{{ route('blog') }}">Blog</a></li>
                 <li><a href="{{ route('login')}}">Login</a></li>
                 <li><a href="{{route('register')}}">Register</a></li>
                 <li><a href="#">About</a></li>
@@ -38,3 +41,4 @@
         </nav>
     </header>
     @yield('content')
+    @include('layout.footer')

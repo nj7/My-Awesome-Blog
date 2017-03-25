@@ -301,6 +301,7 @@ ul.tags li a:hover {
 footer {
     border-top: 1px solid #e7e7e7;
     padding: 15px 0;
+    position: relative;
 }
 
 footer p {
@@ -336,13 +337,8 @@ span.required {
 
 .auth-form{
     width: 350px;
-    height: 90% !important;
     padding: 50px;
+    height: 470px;
     margin: auto;
     text-align: left;
  }
- footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-}

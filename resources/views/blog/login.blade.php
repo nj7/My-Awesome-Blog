@@ -31,6 +31,4 @@
 		    </div>
 	    </form>
 	</div>
-
-	@include('layout.footer')
 @endsection

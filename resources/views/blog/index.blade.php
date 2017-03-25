@@ -65,5 +65,4 @@
             @include('layout.sidebar')
         </div>
     </div>
-    @include('layout.footer')
 @endsection
