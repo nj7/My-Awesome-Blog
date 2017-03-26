@@ -32,7 +32,7 @@ Route::get('/login', [
 		'as' => 'login'
 	]);
 
-Route::post('/login/signingIn', [
+Route::post('/login', [
 		'uses' => 'LoginController@signIn',
 		'as' => 'signin'
 	]);

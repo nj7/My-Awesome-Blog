@@ -31,8 +31,15 @@
             <div class="collapse navbar-collapse" id="the-navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ route('blog') }}">Blog</a></li>
-                <li><a href="{{ route('login')}}">Login</a></li>
-                <li><a href="{{route('register')}}">Register</a></li>
+                
+                @if(isset($user))
+                    {{$user->name}}
+                    
+                @else
+                    <li><a href="{{ route('login')}}">Login</a></li>
+                    <li><a href="{{route('register')}}">Register</a></li>
+                @endif
+                
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>

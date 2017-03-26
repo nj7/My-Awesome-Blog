@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Request;
+use Illuminate\Http\Request;
 use App\User;
 
 class RegisterController extends Controller
@@ -14,7 +13,12 @@ class RegisterController extends Controller
 
     public function create(Request $request)
     {
-    	User::create(Request::all());
+    	User::insert([
+     
+        		'name' => $request->name,
+        		'email' => $request->email,
+        		'password' => bcrypt($request->password),
+        	]);
     	return 'successfully created';
     }
 }

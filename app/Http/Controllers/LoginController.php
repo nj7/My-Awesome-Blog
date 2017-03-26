@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use App\User;
 
 class LoginController extends Controller
@@ -14,7 +15,10 @@ class LoginController extends Controller
 
     public function signIn(Request $request)
     {
-    	User::create(Request::all());
-		return 'logged in';
+		$users = User::where("email","=",$request->email)->get();
+		foreach ($users as $user) {
+			if(Hash::check($request->password,$user->password))
+				return 'Logged In';
+		}
     }
 }
