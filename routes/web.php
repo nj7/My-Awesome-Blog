@@ -15,6 +15,10 @@ Route::get('/', [
 		'uses' => 'BlogController@index',
 		'as' => 'blog'
 	]);
+Route::get('/user/{user}', [
+		'uses' => 'BlogController@login',
+		'as' => 'blog.login'
+	]);
 
 Route::get('/blog/{post}', [
 

@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Carbon\Carbon;
 
 //name of the table
+use App\User;
 use App\Postnew;
 use App\category;
 
@@ -51,5 +52,16 @@ class BlogController extends Controller
                           ->simplePaginate($this->limit);
 
         return view("blog.index",compact('posts','categoryName'));
+    }
+
+    public function login(User $user)
+    {
+        $posts = Postnew::with('author')
+                        ->orderBy('published_at','desc')
+                        ->published()
+                        ->simplePaginate($this->limit);
+        $user = $user->name;
+
+        return view("blog.index",compact('posts','user'));
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Carbon\Carbon;
 use App\Postnew;
+use App\User;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,10 @@ class RouteServiceProvider extends ServiceProvider
         
         Route::bind('post', function($slug){
             return Postnew::published()->where('slug', $slug)->first();
+        });
+
+        Route::bind('user', function($token){
+            return User::where('remember_token', $token)->first();
         });
     }
 

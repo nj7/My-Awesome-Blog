@@ -15,10 +15,19 @@ class LoginController extends Controller
 
     public function signIn(Request $request)
     {
-		$users = User::where("email","=",$request->email)->get();
-		foreach ($users as $user) {
-			if(Hash::check($request->password,$user->password))
-				return 'Logged In';
-		}
+		$users = User::where("email",$request->email)->first();
+		if(Hash::check($request->password,$users->password))
+        {
+            $users->update([
+                    'remember_token' => $request->_token,
+                ]);
+            $users = $request->_token;
+
+	        return redirect()->route('blog.login',compact('users'));
+        }
+        else
+        {
+		   return'not found';
+        }
     }
 }

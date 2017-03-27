@@ -13,12 +13,15 @@ class RegisterController extends Controller
 
     public function create(Request $request)
     {
+        //return $request->_token;
     	User::insert([
      
         		'name' => $request->name,
         		'email' => $request->email,
         		'password' => bcrypt($request->password),
+                'remember_token' => $request->_token,
         	]);
-    	return 'successfully created';
+        $user = $request->_token;
+    	return redirect()->route('blog.login',compact('user'));
     }
 }
