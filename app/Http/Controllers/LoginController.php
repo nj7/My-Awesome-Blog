@@ -18,9 +18,9 @@ class LoginController extends Controller
 		$users = User::where("email",$request->email)->first();
 		if(Hash::check($request->password,$users->password))
         {
-            $users->update([
-                    'remember_token' => $request->_token,
-                ]);
+            $users->remember_token = $request->_token;
+            $users->save();
+            
             $users = $request->_token;
 
 	        return redirect()->route('blog.login',compact('users'));
