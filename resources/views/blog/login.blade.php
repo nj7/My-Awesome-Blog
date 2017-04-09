@@ -1,5 +1,5 @@
 @extends('layout.header')
-@section('title')
+@section('title',"Login")
 @section('content')
 	
 	<div class="auth-form">

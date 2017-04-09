@@ -17,7 +17,7 @@
                 
                     <div class="post-item-body">
                         <div class="padding-10">
-                            <h1><a href="post.html"> {{ $post->title }} </a></h1>
+                            <h1><a href="#"> {{ $post->title }} </a></h1>
                             
                         </div>
 

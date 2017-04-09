@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
             
             @if(! $posts->count())
                 <div class="alert alert-warning">  

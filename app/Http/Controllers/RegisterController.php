@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegisterMail;
+
 use App\User;
 
 class RegisterController extends Controller
@@ -21,6 +26,17 @@ class RegisterController extends Controller
         		'password' => bcrypt($request->password),
                 'remember_token' => $request->_token,
         	]);
+
+        //starting a login session
+        Session::insert([
+
+                'user_email' => $request->email,
+                'remember_token' => $request->_token,
+            ]);
+
+        //sending confirmation email
+        //Mail::to($request->email)->send(new RegisterMail());
+        
         $user = $request->_token;
     	return redirect()->route('blog.login',compact('user'));
     }

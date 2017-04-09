@@ -15,10 +15,6 @@ Route::get('/', [
 		'uses' => 'BlogController@index',
 		'as' => 'blog'
 	]);
-Route::get('/user/{user}', [
-		'uses' => 'BlogController@login',
-		'as' => 'blog.login'
-	]);
 
 Route::get('/blog/{post}', [
 
@@ -31,6 +27,8 @@ Route::get('/category/{category}', [
 		'as' => 'category'
 	]);
 
+
+// Route For Login
 Route::get('/login', [
 		'uses' => 'LoginController@index',
 		'as' => 'login'
@@ -41,6 +39,8 @@ Route::post('/login', [
 		'as' => 'signin'
 	]);
 
+
+//Route For Registering of Users
 Route::get('/register', [
 		'uses' => 'RegisterController@index',
 		'as' => 'register'

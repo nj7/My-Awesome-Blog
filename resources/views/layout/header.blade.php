@@ -32,15 +32,14 @@
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ route('blog') }}">Blog</a></li>
 
-                @if(isset($user))
-                    <li><a href="">{{$user}}</a></li>
+                @if(isset($name))
+                    <li><a href="">{{$name}}</a></li>
                 @else
                     <li><a href="{{ route('login')}}">Login</a></li>
                     <li><a href="{{route('register')}}">Register</a></li>
                 @endif
-                
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+
+
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container -->

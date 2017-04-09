@@ -32,7 +32,7 @@
 		      
 		      <input type="hidden" name="_token" value="{{csrf_token()}}">
 
-		      <input class="btn btn-primary btn-block" data-disable-with="Registering You in..." name="commit" tabindex="3" type="submit" value="Register">
+		      <input class="btn btn-primary btn-block"  name="commit" tabindex="3" type="submit" value="Register">
 		    </div>
 	    </form>
 	</div>

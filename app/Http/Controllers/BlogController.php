@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\User;
 use App\Postnew;
 use App\category;
+use App\Session;
 
 class BlogController extends Controller
 {
@@ -17,12 +18,18 @@ class BlogController extends Controller
     protected $limit = 3;
     
     public function index()
-    {
-    	
+    {   
+        /*checking session*/
+        $name = BlogController::checkSession();
+
     	$posts = Postnew::with('author')
 	    				->orderBy('published_at','desc')
 	    				->published()
 	    				->simplePaginate($this->limit);
+        if(isset($name))
+        {
+            return view("blog.index",compact('posts','name'));
+        }
 
     	return view("blog.index",compact('posts'));
     	
@@ -37,12 +44,23 @@ class BlogController extends Controller
 
     public function show(Postnew $post)
     {	
-    	return view('blog.show', compact('post') );
+        /*checking session*/
+        $name = BlogController::checkSession();
+
+        if(isset($name))
+        {
+            return view("blog.show",compact('post','name'));
+        }
+    	
+        return view('blog.show', compact('post') );
     }
 
 
     public function category(category $category)
     {
+        /*checking session*/
+        $name = BlogController::checkSession();
+
         $categoryName = $category->title;
         
         $posts = $category->posts()
@@ -51,17 +69,23 @@ class BlogController extends Controller
                           ->published()
                           ->simplePaginate($this->limit);
 
+        if(isset($name))
+        {
+            return view("blog.index",compact('posts','category','name'));
+        }
+        
         return view("blog.index",compact('posts','categoryName'));
     }
 
-    public function login(User $user)
+    public static function checkSession()
     {
-        $posts = Postnew::with('author')
-                        ->orderBy('published_at','desc')
-                        ->published()
-                        ->simplePaginate($this->limit);
-        $user = $user->name;
+        $request = Request();
+        $token = $request->session()->get("_token");
 
-        return view("blog.index",compact('posts','user'));
+        $session = Session::where('remember_token', $token )->first();
+
+        $name = User::where('email',$session->user_email)->first();
+        
+        return $name->name; 
     }
 }
