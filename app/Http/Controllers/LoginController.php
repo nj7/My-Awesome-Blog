@@ -20,16 +20,16 @@ class LoginController extends Controller
         
 		if(Hash::check($request->password,$users->password))
         {
-            $users->remember_token = $request->_token;
-            $users->save();
             
             if($ses = Session::where("user_email" , $request->email)->first())
             {
-                $ses->remember_token = $request->_token;
-                $ses->save();
+                return 'Already logged in on diff computer';
             }
             else
             {
+                $users->remember_token = $request->_token;
+                $users->save();
+
                 Session::insert([
 
                     'user_email' => $users->email,
