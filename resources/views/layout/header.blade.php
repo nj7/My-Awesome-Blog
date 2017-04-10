@@ -33,7 +33,8 @@
                 <li><a href="{{ route('blog') }}">Blog</a></li>
 
                 @if(isset($name))
-                    <li><a href="">{{$name}}</a></li>
+                    <li><a href="#">{{$name}}</a></li>
+                    <li><a href="{{ route('logout') }}">Log Out</a></li>
                 @else
                     <li><a href="{{ route('login')}}">Login</a></li>
                     <li><a href="{{route('register')}}">Register</a></li>

@@ -83,9 +83,11 @@ class BlogController extends Controller
         $token = $request->session()->get("_token");
 
         $session = Session::where('remember_token', $token )->first();
-
-        $name = User::where('email',$session->user_email)->first();
+        if(isset($session)){
+            $name = User::where('email',$session->user_email)->first();
+            
+            return $name->name; 
+        }
         
-        return $name->name; 
     }
 }

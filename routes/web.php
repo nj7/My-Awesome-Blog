@@ -49,3 +49,8 @@ Route::post('/register', [
 		'uses' => 'RegisterController@create',
 		'as' => 'create_user'
 	]);
+
+Route::get('/lgout', [
+		'uses' => 'LogoutController@index',
+		'as' => 'logout'
+	]);
